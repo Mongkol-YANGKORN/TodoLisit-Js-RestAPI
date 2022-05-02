@@ -61,24 +61,11 @@ function FormTodo() {
     await api.updateTodo(id, todo);
     const result = await api.readTodo();
     setTodos(result.data);
+    console.log("id = ", id);
   };
-  //console.log(todo);
+
+  console.log(todo);
   console.log(todos);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const item = value;
-  //   addTodo(item);
-  //   setValue("");
-  // };
-
-  // useEffect(() => {
-  //   axios.post(`http://34.124.220.187`).then((res) => {
-  //     const responseTodo = res.data;
-  //     setTodos(responseTodo);
-  //   });
-  // }, []);
-  // console.log(todos);
 
   return (
     <div>
@@ -110,10 +97,10 @@ function FormTodo() {
         {todos.map((todo) => {
           return (
             <div key={todo.id}>
-              <a onClick={() => editTodo(todo.id, todo.task)}>
+              <a href="#" onClick={() => editTodo(todo.id, todo.task)}>
                 <h4>{todo.task}</h4>
               </a>
-              <button onClick={deleteTodo.id}>delete</button>
+              <button onClick={() => deleteTodo(todo.id)}>delete</button>
             </div>
           );
         })}
